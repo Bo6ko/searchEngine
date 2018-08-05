@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <h1>Редактиране на двигател:</h1>
+    {{ form_start(engineForm) }}
+        {{ form_label(engineForm.name, 'Цвят:') }}
+        {{ form_widget(engineForm.name) }}<br/>
+        <input type="submit" value="Добави" />
+    {{ form_end(engineForm) }}
+  
+{% endblock %}

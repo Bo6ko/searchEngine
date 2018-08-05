@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <h1>Редактиране на цвят:</h1>
+    {{ form_start(modelForm) }}
+        {{ form_label(modelForm.name, 'Цвят:') }}
+        {{ form_widget(modelForm.name) }}<br/>
+        <input type="submit" value="Добави" />
+    {{ form_end(modelForm) }}
+  
+{% endblock %}

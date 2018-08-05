@@ -1,0 +1,153 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,700);
+/*	----------------------------------------------------------------
+*	HTML defaults
+*/
+html{background: #fff;}
+body{font-size:13px;line-height:20px;font-family: Roboto;}
+input[type=checkbox]{border:0;}
+img{vertical-align:text-bottom;}
+sup{font-size:.6em;vertical-align:top;}
+
+a:link,a:visited{color:#0072CF;}
+a:hover,a:active{color:#000;}
+
+/*	----------------------------------------------------------------
+*	Useful classes
+*/
+.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;float:none;}
+.clear:after{clear:both;content:'.';display:block;height:0;visibility:hidden;}
+.upper {text-transform: uppercase;}
+.bold {font-weight: bold;}
+.tcenter{text-align: center;}
+.tleft{text-align: left;}
+.tright{text-align: right;}
+
+
+/*	================================================================
+*	block:	HEADER
+*/
+#header{
+	padding:10px 0px;
+	font-family: Roboto;
+	font-size: 11px;
+	background-color: #f8f8f0;
+	color: #195375;
+  margin-bottom: 35px;
+}
+
+#content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.navigation, .highcharts-root, #container {
+	width: 1200px;
+    margin: 0 auto;
+}
+
+.year, .month {
+	float: left;
+}
+
+#year, #month {
+	height: 25px;
+	border-radius: 1px;
+}
+
+#year:hover, #month:hover {
+	border-color: #bddaf5;
+}
+
+.month {
+	margin-left: 10px;
+}
+
+.gobtn {
+	margin-left: 10px;
+	background-color: #1c4e82;
+	color: #ffffff;
+	border: 0px;
+	width: 40px;
+	height: 25px;
+	border-radius: 1px;
+}
+
+.clear {
+	clear: both;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 24px;
+}
+.graficTitle {
+  text-align: center;
+}
+
+.period {
+  text-align: center;
+}
+
+th, td {
+  padding-left: 3px;
+  border: 1px solid black;
+  text-align: left;
+  font-size: 12px;
+}
+.grafic2 th, td {
+  width: 78px;
+  display: inline-block;
+}
+.grafic2 th:last-child, .grafic2 td:last-child {
+  width:139px;
+}
+th {
+  color: #ffffff;
+  background-color: #618fc4;
+}
+
+.grafic2 {
+  position: relative;
+  text-align: right;
+  margin-bottom: 40px;
+}
+.graficIndex {
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 7px;
+  background-color: #f23a2b;
+  position: absolute;
+  top: 3px;
+  left: 0px;
+}
+
+.grafic1 {
+  position: relative;
+  height: 300px;
+  margin-bottom: 30px;
+}
+.grafic1 .graficIndex { 
+  top: 75px;
+  z-index: 1
+}
+.grafic3 {
+  position: relative;
+  margin-bottom: 10px;
+}
+.grafic3 .graficIndex {
+  top: 41px;
+}
+.grafic3 h3 {
+  text-align: center;
+}
+
+.grafic3 th, .grafic3 td {
+  width: 30px;
+  display: inline-block;
+}
+.grafic3 th:last-child, .grafic3 td:last-child {
+  width:50px;
+}

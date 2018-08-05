@@ -1,0 +1,39 @@
+<div id="content">
+	
+	<div class="section">
+		
+		<form action="" method="post" >
+			<div class="crud_form">
+				<div class="form-body">
+					<fieldset>
+						<legend>Create a marque</legend>
+					</fieldset>
+					
+					<fieldset>
+						<ul>
+							<li>
+								<div class="d1">
+									<label for="marque_name">Marque: </label>
+								</div>
+								
+								<div class="d2">
+									<input type="text" name="marque_name" class="text required" id="marque_name" value="{if isset($smarty.post.marque_name)}{$smarty.post.marque_name|escape:'html'}{/if}" />
+								</div>
+							</li>
+						</ul>
+						
+						<button type="submit" class="create">Create</button>
+						
+						<div class="clear"> </div>
+						
+					</fieldset>
+		
+					{if isset($response.message)}{$response.message}{/if}
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<div class="clear"></div>
+	
+</div><!-- #content div -->

@@ -1,0 +1,48 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/add_mark">
+			<label><strong>Add new brand:</strong></label><br/><br/>
+			<input type="text" placeholder="add marque" name="add-marque" />
+			<span class="error">{$errors.mark}</span><br/><br/>
+			<input class="btn" type="submit" value="Add" />
+		</form>
+	</div>
+	
+	
+	<div class="messageSend">{$messageSend}</div>
+	<div class="messageSend messageDelete">{$editMessage}{$deleteMessage}</div>
+	 
+	 
+	<table style="width: 100%; margin: 40px 0px;" border=1>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Date created</th>
+				<th>Date modified</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+			
+		<tbody>
+			{foreach from=$data.results item=mark}
+			<tr>
+				<td><a href="{$smarty.const.WEB_PATH}admin_panel/edit_mark/{$mark.marque_id}">{$mark.marque_id}</a></td>
+				<td>{$mark.marque_name}</td>
+				<td>{$mark.marque_date_created}</td>
+				<td>{$mark.marque_date_modified}</td>
+				<td style="text-align: center; color: red;">
+					<strong><a style="color: red;" href="{$smarty.const.WEB_PATH}admin_panel/delete_mark/{$mark.marque_id}">X</a></strong>
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	
+	{$data.links}
+	
+	
+</div>

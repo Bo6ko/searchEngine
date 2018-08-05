@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Webi Абра Кадабра</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<link rel="shortcut icon" href="{$smarty.const.WEB_PATH}favicon.ico"/>
+	
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="{$smarty.const.WEB_PATH}js/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="{$smarty.const.WEB_PATH}js/respond.min.js"></script>
+	<script type="text/javascript" src="{$smarty.const.WEB_PATH}js/jquery.1.11.1.min.js"></script>
+	
+	<link rel="stylesheet" href="{$smarty.const.WEB_PATH}css/reset.css" media="all"/>
+	<link rel="stylesheet" href="{$smarty.const.WEB_PATH}css/manager/global.css" media="all"/>
+</head>
+
+
+
+<body>
+
+<ul class="menu">
+	<a href="{$smarty.const.WEB_PATH}manager/marques"><li>marques</li></a>
+	<a href="{$smarty.const.WEB_PATH}manager/modeles"><li>modeles</li></a>
+	<a href="{$smarty.const.WEB_PATH}manager/engines"><li>engines</li></a>
+	<a href="{$smarty.const.WEB_PATH}manager/colors"><li>colors</li></a>
+	<a href="{$smarty.const.WEB_PATH}manager/carrosseries"><li>carrosseries</li></a>
+</ul>
+
+<!-- CONTENT BEGIN -->
+
+	{$content}
+
+<!-- CONTENT END -->
+
+</body>
+</html>

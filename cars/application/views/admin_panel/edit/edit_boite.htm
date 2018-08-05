@@ -1,0 +1,15 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/edit_boite/{$boite.boite_id}">
+			<label><strong>Edit boite:</strong></label><br/><br/>
+			<input type="text" placeholder="add boite" name="add-boite" value="{$boite.boite_name}" />
+			<span class="error">{$errors.boite}</span><br/><br/>
+			<input class="btn" type="submit" value="Edit" />
+		</form>
+	</div>
+	
+	
+</div>

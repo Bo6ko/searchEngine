@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	{% for cart_car in cart.cartCars %}
+		<p>{{ cart_car.car.mark }}</p>
+	{% endfor %}
+  
+{% endblock %}

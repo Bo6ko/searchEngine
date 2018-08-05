@@ -1,0 +1,250 @@
+<div id="content">
+<br/>			
+   
+<!--SLIDER-->
+<div  id="jssor_1">
+	<div class="slides" data-u="slides">
+		{foreach from=$best_price_cars item=best_price_car}
+		<div style="display: none;">
+		    <img data-u="image" src="{$smarty.const.WEB_PATH}images\hyundai.bmp" alt="car1" />
+		    <div class="image-title">
+				<div class="image-title-left">
+					<strong>{$best_price_car.vehicule_annee} {$best_price_car.marque_name} {$best_price_car.modele_name}</strong>
+					<div class="image-desc">Miles: {$best_price_car.vehicule_kilometrage} 
+					<strong>Engine:</strong> {$best_price_car.energie_name}</div>
+				</div>
+				<div class="image-title-right">
+					<strong>$ {$best_price_car.vehicule_price}</strong>
+				</div>
+			</div>  
+		</div>
+		{/foreach}
+
+	</div>
+ 
+	<!-- Bullet Navigator -->
+	<div data-u="navigator" class="jssorb05" data-autocenter="1">
+	    <!-- bullet navigator item prototype -->
+	    <div data-u="prototype" style="width:16px;height:16px;"></div>
+	</div>  
+
+	
+	        <!-- Arrow Navigator
+	<span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+	<span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+	<a href="http://www.jssor.com" style="display:none">Bootstrap Carousel</a>
+        -->
+</div>
+<script>
+   jssor_1_slider_init();
+</script>
+<!--  End Slider -->
+
+<div id="search-form">
+	<div class="form-group">
+		<h2>Search auto</h2>
+		<div class="vehicles-icon">
+			<img src="{$smarty.const.WEB_PATH}images\search_icon1.png" alt="search_icon1" />
+			<img src="{$smarty.const.WEB_PATH}images\search_icon2.png" alt="search_icon2" />
+			<img src="{$smarty.const.WEB_PATH}images\search_icon3.png" alt="search_icon3" />
+			<img src="{$smarty.const.WEB_PATH}images\search_icon4.png" alt="search_icon4" />
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<form method="get" action="{site_url('results')}">
+		<div style="margin-bottom: 9.3px;" class="form-group">
+			<label>Manufacturer</label><br/>
+			<select id="marque_id" class="select-control" name="marques">
+				<option value=""> - choose - </option>
+	   			{foreach from=$marques item=marque}
+   					<option value="{$marque.marque_id}">{$marque.marque_name}</option>
+				{/foreach}
+			</select><br/>
+		</div>	
+		
+		<div class="form-group">
+			<label>Model</label><br/>
+			<select id="modele_id" class="select-control" name="models">
+				<option value=""> - choose - </option>
+	   			{foreach from=$models item=model}
+   					<option value="{$model.modele_id}">{$model.modele_name}</option>
+				{/foreach}
+			</select><br/>
+		</div>
+			
+		<div class="form-group">
+			<label>Year</label><br/>
+			<select class="select-control" name="year-from">
+				<option value="" disabled selected>From</option>
+				{for $i=1990 to 2017}
+					<option value="{$i}">{$i}</option>
+				{/for}							
+			</select>
+	
+			<select class="select-control" name="year-to">
+				<option value="" disabled selected>To</option>
+				{for $i=1990 to 2017}
+					<option value="{$i}">{$i}</option>
+				{/for}	
+			</select><br/>
+		</div>	
+			
+		<div class="form-group">
+			<label>Price</label><br/>
+			<select class="select-control" name="price-from">
+				<option value="" disabled selected>From</option>
+				{for $i=1 to 10}
+					{$yearsFrom = $yearsFrom + 500}
+					<option value="{$yearsFrom}">{$yearsFrom}</option>
+				{/for}	
+				<option value="10000">10000</option>
+			</select>
+	
+			<select class="select-control" name="price-to">
+				<option value="" disabled selected>to</option>
+				{for $i=1 to 10}
+					{$yearsTo = $yearsTo + 1000}
+					<option value="{$yearsTo}">{$yearsTo}</option>
+				{/for}	
+				{for $i=1 to 9}
+					{$y = $y + 10000}
+					<option value="{$y}">{$y}</option>
+				{/for}
+			</select><br/>
+		</div>	
+			
+		<div class="form-group">
+			<label>Mileage</label><br/>
+			<select class="select-control" name="mileage-from">
+				<option value="" disabled selected>From</option>
+				{for $i=1 to 10}
+					{$milesFrom = $milesFrom + 10000}
+					<option value="{$milesFrom}">{$milesFrom}</option>
+				{/for}	
+			</select>
+	
+			<select class="select-control" name="mileage-to">
+				<option value="" disabled selected>To</option>
+				{for $i=1 to 25}
+					{$milesTo = $milesTo + 10000}
+					<option value="{$milesTo}">{$milesTo}</option>
+				{/for}	
+			</select><br/>
+		</div>
+
+		<div style="margin-top: 21px">
+			<input style="margin-top: 12px" type="checkbox" name="newcar" /> Only new cars
+			<input type="submit" class="btn btn-primary" value="SEARCH" />
+			<div class="clear"></div>
+		</div>
+		
+	</form>
+</div>
+
+<h2>Recent listings</h2>
+<hr/>
+
+<div class="recently-cars">
+	{foreach from=$recently_cars item=car}
+	<div class="pictures-recently-car">
+		<img src="{$smarty.const.WEB_PATH}images\hyundai.bmp" alt="car1">
+	    <div class="image-desc-recently-car">
+			<div class="image-title-left">
+				<strong>{$car.modele_name}</strong>
+			</div>
+			<div class="image-title-right">
+				<strong>$ {$car.vehicule_price}</strong>
+			</div>
+			<div class="clear"></div>
+		</div> 
+	</div>
+	{/foreach}
+	<div class="clear"></div>
+
+</div>
+
+<div>
+	<div class="looking-for-car left">
+		<div class="left">
+			<div class="looking-for-car-header"><strong>Looking for a car?</strong></div>
+			<span style="font-size: 10px;">1.000 new offers every day. 35.000 offers on site</span>
+		</div>
+		
+		<div class="right">
+			<a href="#">SEARCH</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="want-to-sell-car right">
+		<div class="left">
+			<div class="want-to-sell-car-header"><strong>Want to sell a car?</strong></div>
+			<span style="font-size: 10px;">200.000 visitors every day. Add your offer now!</span>
+		</div>
+		<div class="right">
+			<a href="{$smarty.const.WEB_PATH}index/offers">SELL</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<h2>Recent from the blog</h2>
+<hr/>
+
+<div class="recent-blog">
+
+	<div class="recent-blog-car">
+		<img src="{$smarty.const.WEB_PATH}images\car-blog1.jpg" alt="car1">
+	    <div class="recent-blog-desc">
+			<p style="font-size:12px; margin: 9px 0px;"><strong>THE IMPORTANCE OF LUXURY SUV SALES EXPLAINED</strong></p>
+			<i style="font-size:10.5px;">November 1, 2012</i>
+			<p style="margin-top: 3px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+			
+			</p>
+		</div> 
+	</div>
+	
+	<div class="recent-blog-car">
+		<img src="{$smarty.const.WEB_PATH}images\car-blog2.jpg" alt="car1">
+	    <div class="recent-blog-desc">
+			<p style="font-size:12px; margin: 9px 0px;"><strong>THE IMPORTANCE OF LUXURY SUV SALES EXPLAINED</strong></p>
+			<i style="font-size:10.5px;">November 1, 2012</i>
+			<p style="margin-top: 3px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+			
+			</p>
+		</div> 
+	</div>
+	
+	<div class="recent-blog-car">
+		<img src="{$smarty.const.WEB_PATH}images\car-blog3.jpg" alt="car1">
+	    <div class="recent-blog-desc">
+			<p style="font-size:12px; margin: 9px 0px;"><strong>THE IMPORTANCE OF LUXURY SUV SALES EXPLAINED</strong></p>
+			<i style="font-size:10.5px;">November 1, 2012</i>
+			<p style="margin-top: 3px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+			
+			</p>
+		</div> 
+	</div>
+	
+	<div class="recent-blog-car">
+		<img src="{$smarty.const.WEB_PATH}images\car-blog3.jpg" alt="car1">
+	    <div class="recent-blog-desc">
+			<p style="font-size:12px; margin: 9px 0px;"><strong>THE IMPORTANCE OF LUXURY SUV SALES EXPLAINED</strong></p>
+			<i style="font-size:10.5px;">November 1, 2012</i>
+			<p style="margin-top: 3px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+			
+			</p>
+		</div> 
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+
+</div>
+<div class="clear"></div>
+	
+        

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Марки на автомобили:</h1>
+    
+    <table border=1>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Модел</th>
+                {# <th>Изтриване</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for model in models %}
+            <tr>
+                <td><a href="{{ path("edit_car_model", {id: model.id}) }}">{{ model.id }}</a></td>
+                <td>{{ model.name }}</td>
+                {# <td><a href="{{ path("edit_car_model", {id: model.id}) }}">X</a></td> #}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+  
+{% endblock %}

@@ -1,0 +1,46 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/add_carrosserie">
+			<label><strong>Add new carrosserie:</strong></label><br/><br/>
+			<input type="text" placeholder="add carrosserie" name="add-carrosserie" />
+			<span class="error">{$errors.carrosserie}</span><br/><br/>
+			<input class="btn" type="submit" value="Add" />
+		</form>
+	</div>
+	
+	<div class="messageSend">{$messageCarrosserie.update}</div>
+	<div class="messageSend messageDelete">{$messageCarrosserie.edit}{$messageCarrosserie.delete}</div>
+	
+	<table style="width: 100%; margin: 40px 0px;" border=1>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Date created</th>
+				<th>Date modified</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+			
+		<tbody>
+			{foreach from=$data.results item=carrosserie}
+			<tr>
+				<td><a href="{$smarty.const.WEB_PATH}admin_panel/edit_carrosserie/{$carrosserie.carrosserie_id}">{$carrosserie.carrosserie_id}</a></td>
+				<td>{$carrosserie.carrosserie_name}</td>
+				<td>{$carrosserie.carrosserie_date_created}</td>
+				<td>{$carrosserie.carrosserie_date_modified}</td>
+				<td style="text-align: center; color: red;">
+					<strong><a style="color: red;" href="{$smarty.const.WEB_PATH}admin_panel/delete_carrosserie/{$carrosserie.carrosserie_id}">X</a></strong>
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	
+	{$data.links}
+	
+	
+</div>

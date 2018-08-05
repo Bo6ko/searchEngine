@@ -1,0 +1,79 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+	
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/edit_car/{$car.vehicule_id}">
+			<label><strong>Edit marque:</strong></label><br/>
+			<select id="marque_id" style="width: 300px;" id="marque_id" class="select-control" name="add-marque">
+				<option value="{$car.marque_id}">{$car.marque_name}</option>
+	   			{foreach from=$marques item=marque}
+   					<option value="{$marque.marque_id}">{$marque.marque_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.marque}</span><br/><br/>
+			
+			
+			<!-- za models -->
+			
+			<label><strong>Edit new modele:</strong></label><br/>
+			<select id="modele_id" style="width: 300px;" class="select-control" name="add-model">
+				<option value="{$car.modele_id}">{$car.modele_name}</option>
+	   			{foreach from=$models item=model}
+   					<option value="{$model.modele_id}">{$model.modele_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.model}</span><br/><br/>
+			
+			
+			
+			<!-- za carroserie -->
+			
+			<label><strong>Edit new carrosserie:</strong></label><br/>
+			<select style="width: 300px;" id="carrosserie_id" class="select-control" name="add-carrosserie">
+				<option value="{$car.carrosserie_id}">{$car.carrosserie_name}</option>
+	   			{foreach from=$carrosseries item=carrosserie}
+   					<option value="{$carrosserie.carrosserie_id}">{$carrosserie.carrosserie_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.carrosserie}</span><br/><br/>
+			
+			
+			<!-- za engine -->
+			
+			<label><strong>Edit new energie:</strong></label><br/>
+			<select style="width: 300px;" id="energie_id" class="select-control" name="add-engine">
+				<option value="{$car.energie_id}">{$car.energie_name}</option>
+	   			{foreach from=$engines item=engine}
+   					<option value="{$engine.energie_id}">{$engine.energie_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.engine}</span><br/><br/>
+			
+			<label><strong>Edit new boite:</strong></label><br/>
+			<select style="width: 300px;" id="boite_id" class="select-control" name="add-boite">
+				<option value="{$car.boite_id}">{$car.boite_name}</option>
+	   			{foreach from=$boites item=boite}
+   					<option value="{$boite.boite_id}">{$boite.boite_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.boite}</span><br/><br/>
+			
+			<label><strong>Edit new color:</strong></label><br/>
+			<select style="width: 300px;" id="couleur_id" class="select-control" name="add-color">
+				<option value="{$car.couleur_name}">{$car.couleur_name}</option>
+	   			{foreach from=$colors item=color}
+   					<option value="{$color.couleur_id}">{$color.couleur_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.color}</span><br/><br/>
+			
+			
+			<input class="btn" type="submit" value="Edit" />
+		</form>
+	
+	</div>
+	
+	
+</div>

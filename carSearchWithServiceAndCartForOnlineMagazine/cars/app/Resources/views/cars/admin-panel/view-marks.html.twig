@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Марки на автомобили:</h1>
+    
+    <table border=1>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Марка</th>
+                {# <th>Изтриване</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for mark in marks %}
+            <tr>
+                <td><a href="{{ path("edit_car_mark", {id: mark.id}) }}">{{ mark.id }}</a></td>
+                <td>{{ mark.name }}</td>
+                {# <td><a href="{{ path("delete_car_mark", {id: mark.id}) }}">X</a></td> #}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+  
+{% endblock %}
