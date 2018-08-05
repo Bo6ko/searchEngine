@@ -1,0 +1,54 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/add_model">
+			<label><strong>Choose marque:</strong></label><br/>
+			<select style="width: 300px;" id="marque_id" class="select-control" name="marques">
+				<!-- <option value="{$data.car.id}">{$data.car.name}</option> -->
+				<option value=" - choose marque - "> - choose - </option>
+	   			{foreach from=$marques item=marque}
+   					<option value="{$marque.marque_id}">{$marque.marque_name}</option>
+				{/foreach}
+			</select>
+			<span class="error">{$errors.marque}</span><br/><br/>
+			<label><strong>Add new modele:</strong></label><br/>
+			<input type="text" placeholder="add modele" name="add-model" />
+			<span class="error">{$errors.model}</span><br/><br/>
+			<input class="btn" type="submit" value="Add" />
+		</form>
+	</div>
+	
+	<div class="messageSend">{$messageModel.update}</div>
+	<div class="messageSend messageDelete">{$messageModel.edit}{$messageModel.delete}</div>
+	
+	<table style="width: 100%; margin: 40px 0px;" border=1>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Date created</th>
+				<th>Date modified</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+			
+		<tbody>
+			{foreach from=$data.results item=model}
+			<tr>
+				<td><a href="{$smarty.const.WEB_PATH}admin_panel/edit_model/{$model.modele_id}">{$model.modele_id}</a></td>
+				<td>{$model.modele_name}</td>
+				<td>{$model.modele_date_created}</td>
+				<td>{$model.modele_date_modified}</td>
+				<td style="text-align: center; color: red;">
+					<strong><a style="color: red;" href="{$smarty.const.WEB_PATH}admin_panel/delete_model/{$model.modele_id}">X</a></strong>
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	
+	{$data.links}
+	
+</div>

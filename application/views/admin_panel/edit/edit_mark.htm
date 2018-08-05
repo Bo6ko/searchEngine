@@ -1,0 +1,14 @@
+<div id="content">
+
+	{include file="admin_menu.htm"}
+	
+	<div class="admin-form">
+		<form method="post" action="{$smarty.const.WEB_PATH}admin_panel/edit_mark/{$mark.marque_id}">
+			<label><strong>Edit marque:</strong></label><br/><br/>
+			<input type="text" placeholder="Marque" name="add-marque" value="{$mark.marque_name}" />
+			<span class="error">{$errors.mark}</span><br/><br/>
+			<input class="btn" type="submit" value="Edit" />
+		</form>
+	</div>
+	
+</div>
